@@ -1,0 +1,25 @@
+def SaveLogs(data_string, filename):
+    """
+    Stores a string of data to an external text file.
+    
+    Parameters:
+        data_string (str): The string of data to be stored in the text file
+        filename (str): The name of the text file where data will be stored
+    
+    Returns:
+        None
+    """
+    try:
+        # Open the file in write mode
+        # If the file doesn't exist, it will be created
+        # If it exists, its contents will be overwritten
+        with open(filename, 'w') as file:
+            # Write the data string to the file
+            file.write(data_string)
+        print(f"Data successfully saved to {filename}")
+    except Exception as e:
+        # Handle any errors that might occur during file operations
+        print(f"Error saving data to {filename}: {str(e)}")
+
+# Example usage:
+# SaveLogs("This is some log data from the database", "database_logs.txt")

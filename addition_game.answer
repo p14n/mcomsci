@@ -1,0 +1,38 @@
+import random
+
+def play_addition_game():
+    score = 0
+    
+    # Ask 3 addition questions
+    for question in range(3):
+        # Generate two random numbers between 1 and 10 inclusive
+        num1 = random.randint(1, 10)
+        num2 = random.randint(1, 10)
+        
+        # Calculate the correct answer
+        correct_answer = num1 * num2
+        
+        # Ask the question and get player's answer
+        print(f"Question {question + 1}: What is {num1} + {num2}?")
+        
+        # Get player input and handle non-integer inputs
+        try:
+            player_answer = int(input("Your answer: "))
+            
+            # Check if the answer is correct
+            if player_answer == correct_answer:
+                print("Correct!")
+                score += 1
+            else:
+                print(f"Wrong! The correct answer is {correct_answer}.")
+        except ValueError:
+            print(f"That's not a valid number. The correct answer was {correct_answer}.")
+    
+    # Display the final score
+    print(f"\nGame over! Your final score is: {score} out of 3")
+
+# Run the game
+if __name__ == "__main__":
+    print("Welcome to the Addition Game!")
+    print("You will be asked 3 addition questions with numbers from 1 to 10.")
+    play_addition_game()
